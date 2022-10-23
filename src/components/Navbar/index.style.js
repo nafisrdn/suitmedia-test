@@ -3,7 +3,12 @@ import styled from "styled-components";
 export const StyledNavbar = styled.nav`
   background-color: ${({ theme }) => theme.colors.primary};
   width: 100%;
-  height: 90px;
+  height: ${({theme}) => theme.sizes.navbarHeight};
+
+  position: fixed;
+  top: 0;
+
+  z-index: 100;
 `;
 
 export const NavContainer = styled.div`

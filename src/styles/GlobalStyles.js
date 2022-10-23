@@ -53,6 +53,14 @@ h1 {
     }
 }
 
+.m {
+    &t{
+        &-navbar {
+            margin-top: ${({ theme }) => theme.sizes.navbarHeight}
+        }
+    }
+}
+
 `;
 
 export default GlobalStyles;
