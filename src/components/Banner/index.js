@@ -14,7 +14,7 @@ const Banner = ({ text, subText, image }) => {
           <g id="Layer_2" data-name="Layer 2">
             <g id="Layer_2-2" data-name="Layer 2">
               <polygon
-                class="cls-1"
+                className="cls-1"
                 points="0 135.42 1280 135.42 1280 0 0 116.67 0 135.42"
               />
             </g>
