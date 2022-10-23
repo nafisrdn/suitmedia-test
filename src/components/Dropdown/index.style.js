@@ -37,7 +37,7 @@ export const Button = styled.div`
 export const Icon = styled.div`
   width: 12px;
 
-  transition: transform .3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 
   &.active {
     transform: rotate(180deg);

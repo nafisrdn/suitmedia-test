@@ -1,15 +1,21 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import Header, { SORT_BY_NEWEST } from "./Header";
+import Header, {
+  FILTER_TYPE_SHOW_PER_PAGE,
+  FILTER_TYPE_SORT_BY,
+  SORT_BY_NEWEST,
+} from "./Header";
 import PostList from "./PostList";
 
 const apiUrl = "https://suitmedia-backend.suitdev.com/api/ideas";
 
 const Posts = () => {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState();
   const [currentPage, setCurrentPage] = useState(1);
   const [postPerPage, setPostPerPage] = useState(10);
   const [sortBy, setSortBy] = useState(SORT_BY_NEWEST);
+
+  const totalPages = posts ? posts.meta.total : "loading..";
 
   const getPosts = async () => {
     const res = await axios.get(
@@ -19,22 +25,39 @@ const Posts = () => {
           `
     );
 
-    setPosts(res.data.data);
+    setPosts(res.data);
   };
 
   useEffect(() => {
-    console.log(posts);
-  }, [posts])
-
-  useEffect(() => {
+    console.log({ currentPage, postPerPage, sortBy });
     getPosts();
-  }, []);
+  }, [postPerPage, currentPage, sortBy]);
+
+  const handleFilterChange = (value) => {
+    switch (value.type) {
+      case FILTER_TYPE_SHOW_PER_PAGE:
+        setPostPerPage(value.value);
+        break;
+
+      case FILTER_TYPE_SORT_BY:
+        setSortBy(value.value);
+        break;
+
+      default:
+        throw new Error("type not found");
+    }
+  };
 
   return (
     <section>
-      <Header />
-      <PostList posts={posts}/>
-    </section> 
+      <Header
+        currentPage={currentPage}
+        postPerPage={postPerPage}
+        totalPages={totalPages}
+        onFilterChange={handleFilterChange}
+      />
+      {posts && <PostList posts={posts.data} />}
+    </section>
   );
 };
 

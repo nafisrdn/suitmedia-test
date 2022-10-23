@@ -7,7 +7,7 @@ const PostList = ({ posts }) => {
         <PostItem
           key={post.id}
           title={post.title}
-          image={post.medium_image[0].url}
+          image={post.medium_image.length > 0 ? post.medium_image[0].url : null}
           date={post.published_at}
         />
       ))}

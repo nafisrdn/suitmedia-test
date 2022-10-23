@@ -2,8 +2,8 @@ import { useState } from "react";
 import IconArrowDown from "../Icons/IconArrowDown";
 import { DropdownStyled, Button, Icon, Items, Item } from "./index.style";
 
-const Dropdown = ({ onChange, items }) => {
-  const [selected, setSelected] = useState(items[0]);
+const Dropdown = ({ onChange, items, value = items[0] }) => {
+  const [selected, setSelected] = useState(value);
   const [isOpen, setIsOpen] = useState(false);
 
   const handleItemChange = (item) => {
