@@ -6,6 +6,8 @@ export const DropdownStyled = styled.div`
   justify-content: space-between;
   display: inline-block;
   position: relative;
+
+  background-color: #fff;
 `;
 
 export const Button = styled.div`
@@ -49,12 +51,15 @@ export const Items = styled.ul`
   margin: 0;
   list-style: none;
 
+  background-color: #fff;
+
   border: 1px solid ${grey};
   border-radius: 0 0 1rem 1rem;
 
   overflow: hidden;
 
   position: absolute;
+  z-index: 3;
 `;
 
 export const Item = styled.li`

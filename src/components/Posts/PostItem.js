@@ -1,8 +1,15 @@
 import { Link } from "react-router-dom";
-import { Post, Thumbnail, Main, Date, Title } from "./PostItem.style";
+import { getMonthName } from "../../utils/date-utils";
+import { Post, Thumbnail, Main, DateText, Title } from "./PostItem.style";
 
 const PostItem = ({ title, image, date }) => {
-  console.log({ title, image, date });
+  //   console.log({ title, image, date });
+
+  const dateTime = new Date(date);
+  const dateDay = dateTime.getDay();
+  const dateMonth = getMonthName(dateTime.getMonth());
+  const dateYear = dateTime.getFullYear();
+
 
   return (
     <div className="col-3 mb-5 px-4">
@@ -10,7 +17,9 @@ const PostItem = ({ title, image, date }) => {
         <Link to="/">
           <Thumbnail style={{ backgroundImage: `url(${image})` }} />
           <Main className="p-4">
-            <Date className="text-xs">{date}</Date>
+            <DateText className="text-xs">
+              {dateDay} {dateMonth} {dateYear}
+            </DateText>
             <Title>{title}</Title>
           </Main>
         </Link>

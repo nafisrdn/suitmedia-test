@@ -28,7 +28,7 @@ export const Main = styled.main`
     height: 155px;
 `;
 
-export const Date = styled.span`
+export const DateText = styled.span`
     color: #999999;
 `;
 export const Title = styled.h3`

@@ -17,7 +17,7 @@ const sortByValues = [
 
 const Header = () => {
   return (
-    <HeaderStyled className="text-s mb-4">
+    <HeaderStyled className="text-s mb-5">
       <ShowingPostCount>
         <span>Showing 1 - 10 of 100</span>
       </ShowingPostCount>
