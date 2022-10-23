@@ -1,5 +1,7 @@
+import Layout from "../components/Layout";
+
 const Ideas = () => {
-    return <h1>ideas</h1>
+  return <Layout>test</Layout>;
 };
 
 export default Ideas;
