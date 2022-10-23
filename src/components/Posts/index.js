@@ -21,7 +21,7 @@ const Posts = () => {
   const getPosts = async () => {
     const res = await axios.get(
       `${apiUrl}?page[number]=${currentPage}&page[size]=${postPerPage}&append[]=small_image&append[]=medium_image&sort=${
-        sortBy === SORT_BY_NEWEST ? "" : "-"
+        sortBy === SORT_BY_NEWEST ? "-" : ""
       }published_at
           `
     );
