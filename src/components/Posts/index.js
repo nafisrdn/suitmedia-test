@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Pagination from "../Pagination";
 import Header, {
   FILTER_TYPE_SHOW_PER_PAGE,
   FILTER_TYPE_SORT_BY,
@@ -29,7 +30,6 @@ const Posts = () => {
   };
 
   useEffect(() => {
-    console.log({ currentPage, postPerPage, sortBy });
     getPosts();
   }, [postPerPage, currentPage, sortBy]);
 
@@ -48,6 +48,10 @@ const Posts = () => {
     }
   };
 
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+
   return (
     <section>
       <Header
@@ -57,6 +61,12 @@ const Posts = () => {
         onFilterChange={handleFilterChange}
       />
       {posts && <PostList posts={posts.data} />}
+      <Pagination
+        currentPage={currentPage}
+        start={1}
+        end={5}
+        onPageChange={handlePageChange}
+      />
     </section>
   );
 };

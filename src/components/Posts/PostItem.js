@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import { getMonthName } from "../../utils/date-utils";
 import { Post, Thumbnail, Main, DateText, Title } from "./PostItem.style";
 
@@ -14,7 +14,7 @@ const PostItem = ({ title, image, date }) => {
       <Post className="text-condensed">
         <Link to="/">
           <Thumbnail>
-            <LazyLoadImage src={image} delayTime={30000}/>
+            <LazyLoadImage src={image} />
           </Thumbnail>
           <Main className="p-4">
             <DateText className="text-xs">
